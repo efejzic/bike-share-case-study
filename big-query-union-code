@@ -1,0 +1,71 @@
+/* 
+
+PREPARING DATA
+
+SQL script using UNION ALL to merge monthly individual tables into one single dataframe for the year of 2021.
+
+The database used is BigQuery | Google Cloud.
+
+Data used from Divvy Bikes (https://www.divvybikes.com/system-data) 
+for the Capstone Project of the Google Data Analytics Professional Certificate.
+
+
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Jan_2021`
+UNION ALL
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Feb_2021`
+UNION ALL
+SELECT
+  *
+FROM 
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Mar_2021`
+UNION ALL
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Apr_2021`
+UNION ALL
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.May_2021`
+UNION ALL
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Jun_2021`
+UNION ALL
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Jul_2021`
+UNION ALL
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Aug_2021`
+UNION ALL
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Sep_2021`
+UNION ALL
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Oct_2021`
+UNION ALL
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Nov_2021`
+UNION ALL
+SELECT
+  *
+  FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.Dec_2021`
