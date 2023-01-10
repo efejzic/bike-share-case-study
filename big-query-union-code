@@ -6,8 +6,7 @@ SQL script using UNION ALL to merge monthly individual tables into one single da
 
 The database used is BigQuery | Google Cloud.
 
-Data used from Divvy Bikes (https://www.divvybikes.com/system-data) 
-for the Capstone Project of the Google Data Analytics Professional Certificate.
+
 
 
 SELECT
