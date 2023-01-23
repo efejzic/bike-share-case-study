@@ -139,6 +139,36 @@ Process
 Analyze
 _____________________
 
+--IDENTIFYING NULLS (ride_id,rideable_type,started_at,ended_at,member_casual,ride_length for analyis ONLY)
+--THERE IS NONE
+
+(CODE VISUAL)
+
+![nulls](https://user-images.githubusercontent.com/119814593/214141945-572b4e5c-6c6a-47d9-8d23-ed5e7f94e21a.png)
+
+--# of rides per bike type
+
+![member rides](https://user-images.githubusercontent.com/119814593/214147784-c9207983-9529-41c2-8c9d-fe338e24a16c.png)
+
+--# of member vs casual rides
+
+![row](https://user-images.githubusercontent.com/119814593/214148079-452f1c39-d317-414b-b2c2-74ba6195f741.png)
+
+----Total, AVG, Max Duration of Casual & Member Types
+
+![jdpm](https://user-images.githubusercontent.com/119814593/214148841-9c7e338f-758d-464a-ac5c-e499f1210bec.png)
+
+--# of user types per month in 2021
+
+![month](https://user-images.githubusercontent.com/119814593/214149645-9c7a7e0b-6fbf-4ff4-b7c6-d7dfd5ce7540.png)
+
+--# of user type rides per weekday
+
+![week](https://user-images.githubusercontent.com/119814593/214150212-168a77a1-48b8-464a-8752-7644bf50767c.png)
+
+--top 20 most popular routes
+
+![rides](https://user-images.githubusercontent.com/119814593/214151812-43718964-9c72-4cf7-9e1c-610e39b471c5.png)
 
 
 Act
