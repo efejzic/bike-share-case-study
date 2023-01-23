@@ -1,7 +1,51 @@
 # Cyclistic Case Study
 How Does a Bike-Share Navigate Speedy Success?
-Data used from Divvy Bikes (https://www.divvybikes.com/system-data) for the Capstone Project of the Google Data Analytics Professional Certificate.
 
+Introduction
+
+In 2016, Cyclistic launched a successful bike-share offering in Chicago that has become a popular form of travel. Until now, Cyclistic’s marketing strategy relied on building general awareness and appealing to broad consumer segments. 
+-
+Cyclistic’s financial analytics have observed that annual members are much more profitable than casual riders and concluded that maximizing the number of annual members will be key to future growth. The purpose of this case study is to analyze data over a 12-month period to design a marketing strategy aimed at converting casual riders into annual members.
+
+
+Identifying the business task
+
+
+Cyclistic has grown to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime. The majority of riders opt for traditional bikes; about 8% of riders use the assistive options inclusive to people with disabilities and riders who can’t use a standard two-wheeled bike. Cyclistic users are more likely to ride for leisure, but about 30% use them to commute to work each day. Customers who purchase single-ride or full-day passes are referred to as casual riders, while customers who purchase annual memberships are Cyclistic members. 
+
+In order to design effective marketing strategies, the marketing analyst team needs to better understand how annual members and casual riders differ, why casual riders would buy a membership, and how digital media could affect their marketing tactics. 
+
+
+Our business task at hand is to answer:
+
+ 
+How do annual members and casual riders use Cyclistic bikes differently?
+
+In this presentation I will:
+Present trends after analyzing data for 2021 and provide a summary of my analysis
+Document any cleaning and data manipulation
+Showcase visualizations and key findings
+And present recommendations based on my analysis 
+
+Stakeholders
+Primary stakeholders: The director of marketing Lily Moreno and Cyclistic executive team.
+
+Secondary stakeholders: Cyclistic marketing analytics team
+
+Data sources
+
+Data source for this case study is publicly available information: 12 Month (Jan 2021 to Dec 2021) of Cyclistic trip Data from Motivate International Inc: (https://www.divvybikes.com/system-data)
+I am using SQL for data cleaning and transformation and Tableau Public for data visualization. This data source is ROCCC compliant.
+
+Reliable – Data is internal. Chicago Department of Transportation (CDOT), city program responsible for Divvy.
+Original – Motivate International Inc, which operates the City of Chicago’s Divvy bicycle sharing service.
+Comprehensive – Data contains 13 columns of extensive information to review including stations, ride id, & bike type.
+Current – Data is collected in 2021.
+Cited – Data is cited with license agreement
+
+No identifiable patient information is documented in this dataset.
+
+Limitations include NULL values, missing start and end station names in some datasets, and it is not an option to connect pass purchases to credit card numbers to determine if casual riders live in the Cyclistic service area or if they have purchased multiple single passes due to privacy concerns.
 
 
 Data Analysis process: 
