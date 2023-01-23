@@ -2,12 +2,10 @@
 
 PREPARING DATA
 
-SQL script using UNION ALL to merge monthly individual tables into one single dataframe for the year of 2021.
-
 The database used is BigQuery | Google Cloud.
 
 
-
+--Using UNION ALL to merge 12 monthly individual tables into one single dataframe for the year of 2021.
 
 SELECT
   *
@@ -68,3 +66,105 @@ SELECT
   *
   FROM
   `case-study-bike-share-374222.bikeshare_2021_dataset.Dec_2021`
+
+
+--INSPECTING THE DATA
+--EXTRACT () & CASE () & TIMESTAMP_DIFF() TO EXTRACT ‘DAYOFWEEK’ FROM DATE FORMAT AND ASSIGN NUMERICS TO NEW TABLE AND CREATE ride_length COLUMN
+
+SELECT
+  ride_id, 
+CASE  
+  WHEN EXTRACT (MONTH FROM (started_at)) = 1 THEN 'JANURARY'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 2 THEN 'FEBURARY'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 3 THEN 'MARCH'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 4 THEN 'APRIL'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 5 THEN 'MAY'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 6 THEN 'JUNE'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 7 THEN 'JULY'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 8 THEN 'AUGUST'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 9 THEN 'SEPTEMBER'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 10 THEN 'OCTOBER'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 11 THEN 'NOVEMBER'
+  WHEN EXTRACT (MONTH FROM (started_at)) = 12 THEN 'DECEMBER'
+END month,
+
+CASE
+  WHEN EXTRACT(DAYOFWEEK from started_at) = 1 THEN 'Sunday'
+  WHEN EXTRACT(DAYOFWEEK from started_at) = 2 THEN 'Monday'
+  WHEN EXTRACT(DAYOFWEEK from started_at) = 3 THEN 'Tuesday'
+  WHEN EXTRACT(DAYOFWEEK from started_at) = 4 THEN 'Wednesday'
+  WHEN EXTRACT(DAYOFWEEK from started_at) = 5 THEN 'Thursday'
+  WHEN EXTRACT(DAYOFWEEK from started_at) = 6 THEN 'Friday'
+  WHEN EXTRACT(DAYOFWEEK from started_at) = 7 THEN 'Saturday'
+END AS day_of_week,
+  TIMESTAMP_DIFF(ended_at, started_at, minute) AS ride_length,
+  CONCAT(start_station_name, " to " , end_station_name) as route, member_casual as user_type
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.union_df`
+  
+  
+--CALCULATING SIZE OF DATASET 
+--TOTAL TRIPS = 5,595,063
+
+SELECT
+  COUNT(*)
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.union_df`
+  
+  
+-DATAFRAME union_RL created for analysis
+
+  
+--SORT ride_length BY ASCENDING ORDER TO VIEW NEGATIVES
+
+SELECT 
+ ride_length
+FROM 
+ `case-study-bike-share-374222.bikeshare_2021_dataset.union_rl`
+ORDER BY 
+ ride_length ASC
+
+  
+--DELETING ROWS UNDER 1 MINUTE & NEGATIVES
+--This statement removed 85,233 rows from union_RL.
+
+SELECT
+  *
+FROM
+  `case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
+WHERE
+  ride_length < 1;
+DELETE FROM
+ `case-study-bike-share-374222.bikeshare_2021_dataset.union_RL` 
+WHERE
+ ride_length < 1;
+ 
+
+--LOOKING FOR DUPLICATE VALUES IN ONE COLUMN (ride_id)
+--NO DUPLICATES
+
+SELECT 
+ ride_id, COUNT(ride_id)
+FROM 
+ `case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
+GROUP BY 
+ ride_id
+HAVING COUNT(ride_id) > 1;
+
+--NEW COUNT
+--TOTAL TRIPS = 5,509,830
+
+SELECT 
+ COUNT(*)
+FROM `case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
+
+
+--CONCAT start_station_name & end_station_name COUNT
+
+SELECT 
+ route, COUNT(route)
+FROM 
+ `case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
+GROUP BY 
+  route
+HAVING COUNT(route) > 1
