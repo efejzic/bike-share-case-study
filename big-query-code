@@ -168,3 +168,90 @@ FROM
 GROUP BY 
   route
 HAVING COUNT(route) > 1
+
+--ANALYSIS
+ 
+--IDENTIFYING NULLS (ride_id,rideable_type,started_at,ended_at,member_casual,ride_length for analyis ONLY)
+--THERE IS NONE
+
+SELECT 
+ SUM(CASE WHEN ride_id is NULL THEN 1 ELSE 0 END) AS ride_id_null,
+ SUM(CASE WHEN rideable_type is NULL THEN 1 ELSE 0 END) AS rideable_type_null,
+ SUM(CASE WHEN started_at is NULL THEN 1 ELSE 0 END) AS started_at_null,
+ SUM(CASE WHEN ended_at is NULL THEN 1 ELSE 0 END) AS ended_at_null,
+ SUM(CASE WHEN member_casual is NULL THEN 1 ELSE 0 END) AS member_casual_null,
+ SUM(CASE WHEN ride_length is NULL THEN 1 ELSE 0 END) AS ride_length_null
+FROM 
+ `case-study-bike-share-374222.bikeshare_2021_dataset.2021_df`
+ 
+ 
+--# OF RIDES PER BIKE TYPE 
+SELECT 
+ rideable_type, 
+COUNT
+ (rideable_type) as number_of_rides, member_casual
+FROM
+ `case-study-bike-share-374222.bikeshare_2021_dataset.union_df`
+GROUP BY 
+ rideable_type, member_casual
+
+ 
+ --# OF MEMBER VS CASUAL RIDES
+ 
+SELECT 
+ member_casual, COUNT(member_casual) as number_of_rides
+FROM
+`case-study-bike-share-374222.bikeshare_2021_dataset.union_df`
+GROUP BY
+ member_casual
+
+
+
+--TOTAL, AVG, MAX DURATION OF CASUAL & MEMBER TYPES
+
+SELECT
+ sum(ride_length) AS total_duration,
+round(avg(ride_length),2) AS average_duration,
+max(ride_length) AS max_duration,user_type,
+ FROM 
+`case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
+ GROUP BY 
+  user_type
+  
+--# OF USER TYPE RIDES PER MONTH 2021
+ SELECT
+count (month) as month_of_2021, month,
+user_type
+FROM 
+  `case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
+Group by 
+user_type, month
+order by user_type, month_of_2021 DESC
+
+--# OF USER TYPE RIDES PER WEEKDAY
+
+SELECT day_of_week,user_type, COUNT(*)
+FROM `case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
+GROUP BY day_of_week, user_type
+ORDER BY
+CASE day_of_week
+WHEN 'Sunday' THEN 1
+WHEN 'Monday' then 2
+WHEN 'Tuesday' then 3
+WHEN 'Wednesday' then 4
+WHEN 'Thursday' then 5
+WHEN 'Friday' then 6
+ELSE 7
+END ASC
+
+--TOP 20 MOST POPULAR ROUTES
+
+SELECT
+ROUTE,
+COUNT (ROUTE) AS NUMBER_OF_RIDES,USER_TYPE
+FROM
+`case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
+group by route, user_type
+order by number_of_rides DESC
+limit 20
+
