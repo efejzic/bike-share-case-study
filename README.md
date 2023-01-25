@@ -38,7 +38,7 @@ recommended marketing program.
 reporting data that helps guide Cyclistic marketing strategy.
 
 
-## ➰ Data Analysis process: 
+## 🔗 Data Analysis process: 
 
 🔘 **Ask**
 
