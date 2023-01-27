@@ -205,18 +205,6 @@ FROM
 GROUP BY
  member_casual
 
-
-
---TOTAL, AVG, MAX DURATION OF CASUAL & MEMBER TYPES
-
-SELECT
- sum(ride_length) AS total_duration,
-round(avg(ride_length),2) AS average_duration,
-max(ride_length) AS max_duration,user_type,
- FROM 
-`case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
- GROUP BY 
-  user_type
   
 --# OF USER TYPE RIDES PER MONTH 2021
  SELECT
@@ -230,7 +218,23 @@ order by user_type, month_of_2021 DESC
 
 --# OF USER TYPE RIDES PER WEEKDAY
 
-SELECT day_of_week,user_type, COUNT(*)
+SELECT day_of_week,user_type, COUNT(*) as Weekday_Rides
+FROM `case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
+GROUP BY day_of_week, user_type
+ORDER BY
+CASE day_of_week
+WHEN 'Sunday' THEN 1
+WHEN 'Monday' then 2
+WHEN 'Tuesday' then 3
+WHEN 'Wednesday' then 4
+WHEN 'Thursday' then 5
+WHEN 'Friday' then 6
+ELSE 7
+END ASC
+
+--# USER TYPE AVG DAILY 
+
+SELECT day_of_week,user_type, ROUND(AVG(ride_length),2) AS average_time
 FROM `case-study-bike-share-374222.bikeshare_2021_dataset.union_RL`
 GROUP BY day_of_week, user_type
 ORDER BY
