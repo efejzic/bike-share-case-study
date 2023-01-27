@@ -168,7 +168,18 @@ _Code visual_
 ![3](https://user-images.githubusercontent.com/119814593/214410996-da848645-4c58-45cd-8313-62399e32a9b6.jpg)
 
 
-➡️ **_Visualizations: Tableau (link)_**
+➡️ **_Visualizations: Tableau_**
+
+![1](https://user-images.githubusercontent.com/119814593/215188888-033e861b-e980-4c26-898a-7c6a1e2219c3.png)
+
+![#2](https://user-images.githubusercontent.com/119814593/215173779-da0ad5e0-6749-4c7f-a924-2a467f1a2d02.png)
+
+
+
+
+![month](https://user-images.githubusercontent.com/119814593/215182869-7a168658-5519-402f-9b47-4db17a30f784.png)
+
+![avg](https://user-images.githubusercontent.com/119814593/215188546-a4808a5d-a5f5-4f85-a6b9-aebf35d65ac8.png)
 
 
 🔘 **Act**
