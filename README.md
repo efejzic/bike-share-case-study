@@ -170,17 +170,29 @@ _Code visual_
 
 ➡️ **_Visualizations: Tableau_**
 
+**Total rides in 2021 by user type**
+
 ![1](https://user-images.githubusercontent.com/119814593/215188888-033e861b-e980-4c26-898a-7c6a1e2219c3.png)
+
+**Bike type in comparison to user type**
 
 ![#2](https://user-images.githubusercontent.com/119814593/215173779-da0ad5e0-6749-4c7f-a924-2a467f1a2d02.png)
 
-
-
+**Amount of rides by user type for each month in 2021**
 
 ![month](https://user-images.githubusercontent.com/119814593/215182869-7a168658-5519-402f-9b47-4db17a30f784.png)
 
+**Average (minutes) amount of usage per day of week for user type**
+
 ![avg](https://user-images.githubusercontent.com/119814593/215188546-a4808a5d-a5f5-4f85-a6b9-aebf35d65ac8.png)
+
+**Weekly bike usage by user type**
+
+![neww](https://user-images.githubusercontent.com/119814593/215193285-8834e0f6-c465-46c5-b93d-ba38a82b12c4.png)
 
 
 🔘 **Act**
 
+We can observe that in the year 2021 members generally ride more than casual riders. Additionally, we can observe trends in the months and days of week by members and casual riders.
+
+**Marketing campaign:** When looking at the summer months of 2021, we see that members and casual riders both ride more. This provides a great opportunity to push a summer marketing campaign. The number of rides taken begins to accelerate as the weather starts to warm up - we can see a significant increase in rides taken in April and May compared to December and January. TO use this to our advantage, Cyclistic should promote a summer discount member pass, discounts on weekend passes, and daily discounted rides for weekdays that reflect the least amount of rides (Mondays, Tuesdays)
